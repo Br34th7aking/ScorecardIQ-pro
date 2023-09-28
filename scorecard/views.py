@@ -12,3 +12,12 @@ class Teams(APIView):
         teams = Team.objects.all()
         serializer = TeamSerializer(teams, many=True)
         return Response(serializer.data)
+
+class Venues(APIView):
+    """
+    List all venues
+    """
+    def get(self, request, format=None):
+        venues = Venue.objects.all()
+        serializer = VenueSerializer(venues, many=True)
+        return Response(serializer.data)
